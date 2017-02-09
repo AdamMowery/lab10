@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Main {
     private static ArrayList<NewCar> carSet = new ArrayList<>();
     private static Scanner scnr = new Scanner(System.in);
+    private static Validation valid = new Validation();
 
     public static void main(String[] args) {
         int input = 0;                                                                                           //initializing the while variable
@@ -29,15 +30,13 @@ public class Main {
         int input;
         System.out.println("");
         System.out.print("Enter the number of the car you would like to buy: ");
-        carnumber = scnr.nextInt();                                                                             //Getting the users choice of cars they would like to buy
+        carnumber = valid.getValidInteger(1,6);                                                                        //Getting the users choice of cars they would like to buy
         carnumber = carnumber - 1;                                                                              //Aligning the user input with the array index
-        scnr.nextLine();
         carSet.get(carnumber);
         System.out.println("Are you sure you want to buy the - ");                                              //Verifying the purchase
         System.out.println(carSet.get(carnumber).toString());
         System.out.println("1. Yes / 2. No");
-        input = scnr.nextInt();
-        scnr.nextLine();
+        input = valid.getValidInteger(1,2);
         if (input == 1) {
             carSet.remove(carnumber);                                                                          //Removal of the vehicle from the list
         }
@@ -52,4 +51,6 @@ public class Main {
 
         }
     }
+
+
 }
