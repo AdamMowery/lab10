@@ -15,11 +15,11 @@ public class Main {
         carSet.add(new UsedCar("Ford", "F150", 2006, 6000, 150000));
         carSet.add(new UsedCar("Chevrolet", "Silverado", 2004, 5000, 160000));
         listVehicles();                                                                                         //List of cars on the lot
-        while (input != 4) {
+        while (input != 2) {
             buyVehicle();
             listVehicles();
             System.out.println("Would you like to buy another vehicle? 1. yes / 2. no");
-            input = scnr.nextInt();                                                                             //Getting input from the user to determine to exit or not
+            input = valid.getValidInteger(1,2);                                                                             //Getting input from the user to determine to exit or not
             scnr.nextLine();
 
         }
